@@ -16,8 +16,8 @@ def publish_new_frame():
 
     frame1 = 'odom_torso'
     frame2 = 'torso_link'
-    new_frame = 'height_map'
-    parent_frame = 'odom_torso_corrected'  # Replace with the actual parent frame if needed
+    new_frame = 'height_map_2'
+    parent_frame = 'odom_torso'  # Replace with the actual parent frame if needed
 
     while not rospy.is_shutdown():
         try:

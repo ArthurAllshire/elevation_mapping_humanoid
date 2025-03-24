@@ -5,6 +5,7 @@
   <include file="$(find pose_publisher)/launch/pose_publisher.launch" />
   <node pkg="elevation_mapping_demos" type="pc_filter.py" name="pc_filter" />
   <node pkg="elevation_mapping_demos" type="publish_map_frame.py" name="publish_map_frame" />
+  <node pkg="elevation_mapping_demos" type="gravity_correction_publisher.py" name="gravity_correction_publisher" />
   <!-- Elevation mapping node -->
   <node pkg="elevation_mapping" type="elevation_mapping" name="elevation_mapping" output="screen">
     <rosparam command="load" file="$(find elevation_mapping_demos)/config/robots/simple_demo_robot.yaml" />

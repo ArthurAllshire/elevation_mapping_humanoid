@@ -1,7 +1,7 @@
 #include <ros/ros.h>
 #include <pcl_conversions/pcl_conversions.h>
 #include <sensor_msgs/PointCloud2.h>
-#include <livox_ros_driver/CustomMsg.h>
+#include <livox_ros_driver2/CustomMsg.h>
 #include <opencv2/opencv.hpp>
 #include <opencv2/core/core.hpp>
 #include <Eigen/Core>
@@ -92,7 +92,7 @@ class Preprocess
   Preprocess();
   ~Preprocess();
   
-  void process(const livox_ros_driver::CustomMsg::ConstPtr &msg, PointCloudXYZI::Ptr &pcl_out);
+  void process(const livox_ros_driver2::CustomMsg::ConstPtr &msg, PointCloudXYZI::Ptr &pcl_out);
   void process(const sensor_msgs::PointCloud2::ConstPtr &msg, PointCloudXYZI::Ptr &pcl_out);
   void set(bool feat_en, int lid_type, double bld, int pfilt_num);
 
@@ -108,7 +108,7 @@ class Preprocess
     
 
   private:
-  void avia_handler(const livox_ros_driver::CustomMsg::ConstPtr &msg);
+  void avia_handler(const livox_ros_driver2::CustomMsg::ConstPtr &msg);
   void oust64_handler(const sensor_msgs::PointCloud2::ConstPtr &msg);
   void velodyne_handler(const sensor_msgs::PointCloud2::ConstPtr &msg);
   void give_feature(PointCloudXYZI &pl, vector<orgtype> &types);
