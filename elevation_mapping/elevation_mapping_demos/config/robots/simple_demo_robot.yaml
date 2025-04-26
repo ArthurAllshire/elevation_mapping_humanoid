@@ -21,9 +21,19 @@ robot_base_frame_id:                        torso_link
 robot_pose_with_covariance_topic:           /pose
 robot_pose_cache_size:                      200
 input_sources:
+  # mid360 pointcloud
   front: # A name to identify the input source
     type: pointcloud # Supported types: pointcloud
     topic: /cloud_registered/filtered
+    queue_size: 1
+    publish_on_update: true # Wheter to publish the elevation map after a callback from this source.
+    sensor_processor:
+      type: perfect
+
+  # realsense pointcloud 
+  realsense: # A name to identify the input source
+    type: pointcloud # Supported types: pointcloud
+    topic: /points
     queue_size: 1
     publish_on_update: true # Wheter to publish the elevation map after a callback from this source.
     sensor_processor:

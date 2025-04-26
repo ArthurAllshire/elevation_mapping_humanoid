@@ -19,4 +19,19 @@
 
   <!-- Launch RViz with the demo configuration -->
 
+
+  <!-- ========== NEW: Realsense2 + pointcloud ========== -->
+  <!-- 1) launch the D435 camera with pointcloud filter -->
+  <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+    <arg name="filters" value="pointcloud"/>
+  </include>
+
+  <!-- 2) standalone nodelet to convert depth → PointCloud2 -->
+  <node pkg="nodelet" type="nodelet" name="depth_point_cloud_nodelet" output="screen"
+        args="standalone depth_image_proc/point_cloud_xyz \
+              camera_info:=/camera/depth/camera_info \
+              image_rect:=/camera/depth/image_rect_raw" />
+
+
+
 </launch>

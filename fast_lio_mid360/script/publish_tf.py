@@ -13,13 +13,21 @@ class StaticTransformPublisher:
 
         # Define your static transformations here with RPY
         import math
+
         self.transforms = [
-        #     {
-        #         'parent_frame': 'torso_link',
-        #         'child_frame': 'camera_link',
-        #         'translation': (0.11133, 0, 0.68784),
-        #         'rpy': (3.1416, 0.6833, 0.0)  # Roll, Pitch, Yaw
-        #     },
+            {
+                'parent_frame': 'torso_link',
+                'child_frame': 'camera_depth_optical_frame',
+                'translation': (0.0576235, 0.01753, 0.41987),
+                # 'rpy': (0, 0.8307767239493009, 0)  # Roll, Pitch, Yaw
+                #   'rpy':          (-2.416, 0.0, -1.571)
+                  'rpy':          (-2.416, 0.0, -1.571)
+
+                # 'rpy': (3.1415, -0.8307767239493009, 0)  # Roll, Pitch, Yaw
+                # 'rpy': (0.0, 0.0, 0.0)  # Roll, Pitch, Yaw
+                # 'rpy': (3.1415, -(math.pi - 0.8307767239493009), 0.0)  # Roll, Pitch, Yaw
+                # 'rpy': (0.0, 0.0, 0.0)  # Roll, Pitch, Yaw
+            },
             {
                 'parent_frame': 'torso_link',
                 'child_frame': 'lidar_link',
