@@ -10,6 +10,7 @@ class StaticTransformPublisher:
         rospy.init_node('static_transform_publisher')
 
         self.broadcaster = tf2_ros.StaticTransformBroadcaster()
+        self.rate = rospy.Rate(100)  # 100 Hz
 
         # Define your static transformations here with RPY
         import math
@@ -88,7 +89,9 @@ class StaticTransformPublisher:
 if __name__ == '__main__':
     try:
         static_transform_publisher = StaticTransformPublisher()
-        static_transform_publisher.publish_transforms()
+        while not rospy.is_shutdown():
+            static_transform_publisher.publish_transforms()
+            static_transform_publisher.rate.sleep()
         rospy.spin()
     except rospy.ROSInterruptException:
         pass
